@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Coding Quiz Game</title>
+
+</head>
+<body>
+
+<!--Header Content-->
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="highscores.html">View Highscores</a>
+                </li>
+            </ul>
+        </nav>
+        <p id="timer"></p>
+    </header>
+
+    <!--Quiz Content-->
+    <section id="coding-Container">
+      <div class="container">
+        <div class="row">Coding Quiz</div>
+        <div class="row" id='questions'>
+            <p id="intro-Statement">
+              This is a coding quiz.  Remember that you are timed and for every wrong answer, the time will decrease.  Please insert initials at the end of the quiz.
+            </p>
+        </div>
+        <div class="row" id="buttons">
+            <button id="start-Button">
+              Start Quiz
+            </button>
+        </div>
+        <div class="row" id="score"></div>
+      </div>
+    </section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./assets/js/code.js"></script>
+</body>
+</html>
