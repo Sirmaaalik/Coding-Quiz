@@ -6,7 +6,28 @@ var statement = document.getElementById('intro-Statement');
 var startButton = document.getElementById('start-Button');
 var buttonContainer = document.getElementById('buttons');
 var codingContainer = document.getElementById('coding-Container');
-var questionContainer = document.getElementById('questions')
+var questionContainer = document.getElementById('questions');
+
+function GFG_Fun() {
+    // Create anchor element.
+    var a = document.createElement('a'); 
+
+    // Create the text node for anchor element.
+    var link = document.createTextNode("This is link");
+      
+    // Append the text node to anchor element.
+    a.appendChild(link); 
+      
+    // Set the title.
+    a.title = "This is Link"; 
+      
+    // Set the href property.
+    a.href = " ";
+}
+
+// function link() {
+//     window.location("file:///C:/Users/rasha/OneDrive/Documents/GitHub/Coding-Quiz/highscores.html");
+// }
 
 function dontShow(id) {
     $(id).hide();
@@ -25,10 +46,11 @@ function countdown() {
             timer.innerText = 'Time: ' + timeLeft;
             timeLeft--;
             JSON.stringify(localStorage.setItem('highscore', timeLeft))
+
         } else {
             timer.innerText = 'Time: ' + timeLeft;
             clearInterval(timeInterval);
-            JSON.stringify(localStorage.setItem('highscore', timeLeft))
+            JSON.stringify(localStorage.setItem('highscore', timeLeft));
         }
     },1000)
 }
@@ -37,7 +59,7 @@ function countdown() {
 
 $(startButton).on('click', function () {
     //Hiding button and introduction statement
-    dontShow(startButton); dontShow(statement); countdown();
+    countdown(); dontShow(startButton); dontShow(statement);
 
     //First Question and buttons
     question1();
