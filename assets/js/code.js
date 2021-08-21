@@ -25,9 +25,9 @@ function GFG_Fun() {
     a.href = " ";
 }
 
-// function link() {
-//     window.location("file:///C:/Users/rasha/OneDrive/Documents/GitHub/Coding-Quiz/highscores.html");
-// }
+function link() {
+    window.location='https://sirmaaalik.github.io/Coding-Quiz/highscores.html';
+}
 
 function dontShow(id) {
     $(id).hide();
@@ -39,7 +39,7 @@ function doShow(id) {
 
 // Time left Function
 function countdown() {
-    var timeLeft = 75;
+    var timeLeft = 5;
     var timer = document.getElementById('timer');
     var timeInterval = setInterval( function () {
         if(timeLeft >= 1) {
@@ -51,6 +51,7 @@ function countdown() {
             timer.innerText = 'Time: ' + timeLeft;
             clearInterval(timeInterval);
             JSON.stringify(localStorage.setItem('highscore', timeLeft));
+            link();
         }
     },1000)
 }
@@ -65,7 +66,7 @@ $(startButton).on('click', function () {
     question1();
 });
 
-// 
+// Functions for questions duplicated
 function question1() {
     var question = document.createElement('p');
     $(question).attr('id', "first-question");
