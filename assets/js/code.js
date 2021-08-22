@@ -2,11 +2,9 @@ var highscore ='';
 var timer = '';
 var answers = [];
 var buttons = [];
-var statement = document.getElementById('intro-Statement');
-var startButton = document.getElementById('start-Button');
 var buttonContainer = document.getElementById('buttons');
 var codingContainer = document.getElementById('coding-Container');
-var questionContainer = document.getElementById('questions');
+var sentenceContainer = document.getElementById('sentences');
 
 function GFG_Fun() {
     // Create anchor element.
@@ -25,21 +23,24 @@ function GFG_Fun() {
     a.href = " ";
 }
 
+// Link to highscore page
 function link() {
     window.location='https://sirmaaalik.github.io/Coding-Quiz/highscores.html';
 }
 
+// Hide a function
 function dontShow(id) {
     $(id).hide();
 }
 
+// Show a function
 function doShow(id) {
     $(id).show();
 }
 
 // Time left Function
 function countdown() {
-    var timeLeft = 5;
+    var timeLeft = 10;
     var timer = document.getElementById('timer');
     var timeInterval = setInterval( function () {
         if(timeLeft >= 1) {
@@ -57,13 +58,16 @@ function countdown() {
 }
 
 
-
+// Start function and variables
+var statement = document.getElementById('intro-Statement');
+var startButton = document.getElementById('start-Button');
 $(startButton).on('click', function () {
     //Hiding button and introduction statement
     countdown(); dontShow(startButton); dontShow(statement);
 
     //First Question and buttons
-    question1();
+    // question1();
+    userHighscore();
 });
 
 // Functions for questions duplicated
@@ -71,7 +75,7 @@ function question1() {
     var question = document.createElement('p');
     $(question).attr('id', "first-question");
     $(question).text('What is the difference between single and double quotes??');
-    $(questionContainer).append(question);
+    $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
@@ -112,7 +116,7 @@ function question2() {
     var question = document.createElement('p');
     $(question).attr('id', "first-question");
     $(question).text('Is html interactive as much as Javascript??');
-    $(questionContainer).append(question);
+    $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
@@ -147,7 +151,7 @@ function question3() {
     var question = document.createElement('p');
     $(question).attr('id', "first-question");
     $(question).text('Is html interactive as much as Javascript??');
-    $(questionContainer).append(question);
+    $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
@@ -182,7 +186,7 @@ function question4() {
     var question = document.createElement('p');
     $(question).attr('id', "first-question");
     $(question).text('Is html interactive as much as Javascript??');
-    $(questionContainer).append(question);
+    $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
@@ -217,7 +221,7 @@ function question5() {
     var question = document.createElement('p');
     $(question).attr('id', "first-question");
     $(question).text('Is html interactive as much as Javascript??');
-    $(questionContainer).append(question);
+    $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
@@ -246,4 +250,20 @@ function question5() {
         dontShow(question);
         dontShow(buttons[2]);
     });
+}
+
+// Input to set highscore
+function userHighscore () {
+    var instructions = document.createElement('p');
+    $(instructions).text('Please input name for highscore.');
+    sentenceContainer.append(instructions);
+    var input = document.createElement('input');
+    input.type = "text";
+    input.placeholder = "Name";
+    input.name = "user";
+    input.id = "userInput";
+    // while (!userInput = "") {
+    //     alert("You need to type a name.  No numbers or special characters.");
+    // }
+    buttonContainer.append(input);
 }
