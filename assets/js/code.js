@@ -5,28 +5,7 @@ var buttons = [];
 var buttonContainer = document.getElementById('buttons');
 var codingContainer = document.getElementById('coding-Container');
 var sentenceContainer = document.getElementById('sentences');
-
-function GFG_Fun() {
-    // Create anchor element.
-    var a = document.createElement('a'); 
-
-    // Create the text node for anchor element.
-    var link = document.createTextNode("This is link");
-      
-    // Append the text node to anchor element.
-    a.appendChild(link); 
-      
-    // Set the title.
-    a.title = "This is Link"; 
-      
-    // Set the href property.
-    a.href = " ";
-}
-
-// Link to highscore page
-function link() {
-    window.location='https://sirmaaalik.github.io/Coding-Quiz/highscores.html';
-}
+// window.location='https://sirmaaalik.github.io/Coding-Quiz/highscores.html';
 
 // Hide a function
 function dontShow(id) {
@@ -40,7 +19,7 @@ function doShow(id) {
 
 // Time left Function
 function countdown() {
-    var timeLeft = 10;
+    var timeLeft = 45;
     var timer = document.getElementById('timer');
     var timeInterval = setInterval( function () {
         if(timeLeft >= 1) {
@@ -49,10 +28,14 @@ function countdown() {
             JSON.stringify(localStorage.setItem('highscore', timeLeft))
 
         } else {
-            timer.innerText = 'Time: ' + timeLeft;
             clearInterval(timeInterval);
             JSON.stringify(localStorage.setItem('highscore', timeLeft));
-            link();
+        }
+        timer.innerText = 'Time: ' + timeLeft;
+        let submit = document.querySelector('#submit');
+        if(document.querySelector('#buttons').contains(submit) == true) {
+            clearInterval(timeInterval);
+            console.log(document.querySelector('#buttons').contains(submit) == true)
         }
     },1000)
 }
@@ -66,190 +49,213 @@ $(startButton).on('click', function () {
     countdown(); dontShow(startButton); dontShow(statement);
 
     //First Question and buttons
-    // question1();
-    userHighscore();
+    question1();
 });
 
-// Functions for questions duplicated
+// Functions for questions duplicated from 1-5
 function question1() {
-    var question = document.createElement('p');
+    let question = document.createElement('p');
     $(question).attr('id', "first-question");
     $(question).text('What is the difference between single and double quotes??');
     $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
-    $(answers[0]).attr('id', "first-answer");   
+    $(answers[0]).addClass('row');
     answers[0].innerHTML = "Bye";
     $(answers[0]).on('click', function () {
-        dontShow(question); dontShow(buttons[0]); doShow(question2()); console.log("right");
+        dontShow(question); dontShow(buttons[0]); doShow(question2());
     });
 
     answers[1] = document.createElement('button');
-    $(answers[1]).attr('id', "second-answer");
+    $(answers[1]).addClass('row');
     answers[1].innerHTML = "Zoom";
     $(answers[1]).on('click', function () {
-        dontShow(question); dontShow(buttons[0]); doShow(question2()); console.log("wrong");
+        dontShow(question); dontShow(buttons[0]); doShow(question2());
     });
     
     answers[2] = document.createElement('button');
-    $(answers[2]).attr('id', "third-answer");
+    $(answers[2]).addClass('row');
     answers[2].innerHTML = "Boom";
     $(answers[2]).on('click', function () {
-        dontShow(question); dontShow(buttons[0]); doShow(question2()); console.log("wrong");
+        dontShow(question); dontShow(buttons[0]); doShow(question2());
     });
     
     answers[3] = document.createElement('button');
-    $(answers[3]).attr('id', "fourth-answer");
+    $(answers[3]).addClass('row');
     answers[3].innerHTML = "Hi";
     $(answers[3]).on('click', function () {
-        dontShow(question); dontShow(buttons[0]); doShow(question2()); console.log("wrong");
+        dontShow(question); dontShow(buttons[0]); doShow(question2());
     });
 
-    buttons[0] = document.createElement('button');
-    $(buttons[0]).attr('id', "first-set");
+    buttons[0] = document.createElement('div');
+    $(buttons[0]).attr('id', "set");
     $(buttons[0]).append(answers);
     $(buttonContainer).append(buttons[0]);   
 }
 
 function question2() {
-    var question = document.createElement('p');
+    let question = document.createElement('p');
     $(question).attr('id', "first-question");
-    $(question).text('Is html interactive as much as Javascript??');
+    $(question).text('How is the difference between single and double quotes??');
     $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
-    $(answers[0]).attr('id', "first-answer");   
-    answers[0].innerHTML = "Jeremy";
+    $(answers[0]).addClass('row');
+    answers[0].innerHTML = "Bye";
+    $(answers[0]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question3());
+    });
 
     answers[1] = document.createElement('button');
-    $(answers[1]).attr('id', "second-answer");
-    answers[1].innerHTML = "Abby";
+    $(answers[1]).addClass('row');
+    answers[1].innerHTML = "Zoom";
+    $(answers[1]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question3());
+    });
     
     answers[2] = document.createElement('button');
-    $(answers[2]).attr('id', "third-answer");
-    answers[2].innerHTML = "Diana";
+    $(answers[2]).addClass('row');
+    answers[2].innerHTML = "Boom";
+    $(answers[2]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question3());
+    });
     
     answers[3] = document.createElement('button');
-    $(answers[3]).attr('id', "fourth-answer");
-    answers[3].innerHTML = "Catherine";
-
-    buttons[1] = document.createElement('button');
-    $(buttons[1]).attr('id', "second-set");
-    $(buttons[1]).append(answers);
-    $(buttonContainer).append(buttons[1]);
-
-    $(answers[0]).on('click', function () {
-        //Hiding button and introduction statement
-        dontShow(question);
-        dontShow(buttons[1]); 
+    $(answers[3]).addClass('row');
+    answers[3].innerHTML = "Hi";
+    $(answers[3]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question3());
     });
+
+    buttons[0] = document.createElement('div');
+    $(buttons[0]).attr('id', "set");
+    $(buttons[0]).append(answers);
+    $(buttonContainer).append(buttons[0]);   
 }
 
 function question3() {
-    var question = document.createElement('p');
+    let question = document.createElement('p');
     $(question).attr('id', "first-question");
-    $(question).text('Is html interactive as much as Javascript??');
+    $(question).text('Why is the difference between single and double quotes??');
     $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
-    answers[0].innerHTML = "Hi";
-    $(answers[0]).attr('id', "first-answer");   
+    $(answers[0]).addClass('row');
+    answers[0].innerHTML = "Bye";
+    $(answers[0]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question4());
+    });
 
     answers[1] = document.createElement('button');
-    $(answers[1]).attr('id', "second-answer");
-    answers[1].innerHTML = "Hi";
+    $(answers[1]).addClass('row');
+    answers[1].innerHTML = "Zoom";
+    $(answers[1]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question4());
+    });
     
     answers[2] = document.createElement('button');
-    $(answers[2]).attr('id', "third-answer");
-    answers[2].innerHTML = "Hi";
+    $(answers[2]).addClass('row');
+    answers[2].innerHTML = "Boom";
+    $(answers[2]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question4());
+    });
     
     answers[3] = document.createElement('button');
-    $(answers[3]).attr('id', "fourth-answer");
+    $(answers[3]).addClass('row');
     answers[3].innerHTML = "Hi";
-
-    buttons[2] = document.createElement('button');
-    $(buttons[2]).attr('id', "second-set");
-    $(buttons[2]).append(answers);
-    $(buttonContainer).append(buttons[2]);
-
-    $(answers[0]).on('click', function () {
-        //Hiding button and introduction statement
-        dontShow(question);
-        dontShow(buttons[2]);
+    $(answers[3]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question4());
     });
+
+    buttons[0] = document.createElement('div');
+    $(buttons[0]).attr('id', "set");
+    $(buttons[0]).append(answers);
+    $(buttonContainer).append(buttons[0]);   
 }
 
 function question4() {
-    var question = document.createElement('p');
+    let question = document.createElement('p');
     $(question).attr('id', "first-question");
-    $(question).text('Is html interactive as much as Javascript??');
+    $(question).text('When is the difference between single and double quotes??');
     $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
-    answers[0].innerHTML = "Hi";
-    $(answers[0]).attr('id', "first-answer");   
+    $(answers[0]).addClass('row');
+    answers[0].innerHTML = "Bye";
+    $(answers[0]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question5());
+    });
 
     answers[1] = document.createElement('button');
-    $(answers[1]).attr('id', "second-answer");
-    answers[1].innerHTML = "Hi";
+    $(answers[1]).addClass('row');
+    answers[1].innerHTML = "Zoom";
+    $(answers[1]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question5());
+    });
     
     answers[2] = document.createElement('button');
-    $(answers[2]).attr('id', "third-answer");
-    answers[2].innerHTML = "Hi";
+    $(answers[2]).addClass('row');
+    answers[2].innerHTML = "Boom";
+    $(answers[2]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question5());
+    });
     
     answers[3] = document.createElement('button');
-    $(answers[3]).attr('id', "fourth-answer");
+    $(answers[3]).addClass('row');
     answers[3].innerHTML = "Hi";
-
-    buttons[2] = document.createElement('button');
-    $(buttons[2]).attr('id', "second-set");
-    $(buttons[2]).append(answers);
-    $(buttonContainer).append(buttons[2]);
-
-    $(answers[0]).on('click', function () {
-        //Hiding button and introduction statement
-        dontShow(question);
-        dontShow(buttons[2]);
+    $(answers[3]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); doShow(question5());
     });
+
+    buttons[0] = document.createElement('div');
+    $(buttons[0]).attr('id', "set");
+    $(buttons[0]).append(answers);
+    $(buttonContainer).append(buttons[0]);   
 }
 
 function question5() {
-    var question = document.createElement('p');
+    let question = document.createElement('p');
     $(question).attr('id', "first-question");
-    $(question).text('Is html interactive as much as Javascript??');
+    $(question).text('Who is the difference between single and double quotes??');
     $(sentenceContainer).append(question);
 
 
     answers[0] = document.createElement('button');
-    answers[0].innerHTML = "Hi";
-    $(answers[0]).attr('id', "first-answer");   
+    $(answers[0]).addClass('row');
+    answers[0].innerHTML = "Bye";
+    $(answers[0]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); userHighscore();
+    });
 
     answers[1] = document.createElement('button');
-    $(answers[1]).attr('id', "second-answer");
-    answers[1].innerHTML = "Hi";
+    $(answers[1]).addClass('row');
+    answers[1].innerHTML = "Zoom";
+    $(answers[1]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); userHighscore();
+    });
     
     answers[2] = document.createElement('button');
-    $(answers[2]).attr('id', "third-answer");
-    answers[2].innerHTML = "Hi";
+    $(answers[2]).addClass('row');
+    answers[2].innerHTML = "Boom";
+    $(answers[2]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); userHighscore();
+    });
     
     answers[3] = document.createElement('button');
-    $(answers[3]).attr('id', "fourth-answer");
+    $(answers[3]).addClass('row');
     answers[3].innerHTML = "Hi";
-
-    buttons[2] = document.createElement('button');
-    $(buttons[2]).attr('id', "second-set");
-    $(buttons[2]).append(answers);
-    $(buttonContainer).append(buttons[2]);
-
-    $(answers[0]).on('click', function () {
-        //Hiding button and introduction statement
-        dontShow(question);
-        dontShow(buttons[2]);
+    $(answers[3]).on('click', function () {
+        dontShow(question); dontShow(buttons[0]); userHighscore();
     });
+
+    buttons[0] = document.createElement('div');
+    $(buttons[0]).attr('id', "set");
+    $(buttons[0]).append(answers);
+    $(buttonContainer).append(buttons[0]);   
 }
 
 // Input to set highscore
@@ -262,8 +268,22 @@ function userHighscore () {
     input.placeholder = "Name";
     input.name = "user";
     input.id = "userInput";
-    // while (!userInput = "") {
-    //     alert("You need to type a name.  No numbers or special characters.");
-    // }
+    let button = document.createElement('button');
+    $(button).attr('id', "submit");
+    button.innerHTML = "submit";
     buttonContainer.append(input);
+    buttonContainer.append(button);
+    console.log(button);
+
+    $(button).on('click', function () {
+        let highscores = JSON.parse(localStorage.getItem('highscores')) || [];
+        let name = {
+            name: document.querySelector('#userInput').value,
+            score: localStorage.getItem('highscore')
+        }
+        highscores.push(name);
+        localStorage.setItem('highscores', JSON.stringify(highscores));
+        console.log(highscores);
+        window.location.replace("./highscores.html");
+    }) 
 }
