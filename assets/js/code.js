@@ -18,7 +18,7 @@ function doShow(id) {
 }
 
 // Time left Function
-var timeLeft = 305;
+let timeLeft = 75;
 function countdown() {
     var timer = document.getElementById('timer');
     var timeInterval = setInterval( function () {
@@ -45,14 +45,11 @@ function countdown() {
 }
 
 // Start function and variables
-var statement = document.getElementById('intro-Statement');
-var startButton = document.getElementById('start-Button');
+let statement = document.getElementById('intro-Statement');
+let startButton = document.getElementById('start-Button');
 $(startButton).on('click', function () {
     //Hiding button and introduction statement
-    countdown(); dontShow(startButton); dontShow(statement);
-
-    //First Question and buttons
-    question1();
+    countdown(); dontShow(startButton); dontShow(statement); question1();
 });
 
 // Functions for questions duplicated from 1-5
