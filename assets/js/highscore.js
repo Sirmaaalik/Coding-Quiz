@@ -8,12 +8,10 @@ score.forEach(element => {
     let score = document.createElement('span')
     name.textContent = element.name + ":  ";
     score.textContent = element.score;
-    newHighschore.append(name);
-    newHighschore.append(score);
+    newHighschore.append(name, score);
     newHighschore.classList.add('col');
-    let div = document.createElement('div');
-    div.classList.add('row');
-    newHighschore.append(div);
+    let br = document.createElement('br');
+    newHighschore.append(br);
 });
 allHighscores.append(newHighschore);
 // Need name variable set up like score variable.  Add to highscore innerHTML before score
